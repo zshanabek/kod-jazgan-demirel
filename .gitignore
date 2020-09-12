@@ -1,0 +1,21 @@
+static
+db.sqlite3
+__pycache__
+
+*.pyc
+staticfiles
+media
+
+.DS_Store
+
+# local env files
+.env
+
+# Editor directories and files
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
