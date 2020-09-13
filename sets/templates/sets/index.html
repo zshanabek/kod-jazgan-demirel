@@ -2,7 +2,7 @@
 {% block content %}
     <div class="list-group">
         {% for set in sets %}
-            <a href="#" class="list-group-item list-group-item-action">
+            <a href="/sets/{{set.id}}/" class="list-group-item list-group-item-action">
                 {{ set.title }}
             </a>
         {% endfor %}

@@ -18,6 +18,7 @@ sentry-sdk = "*"
 pillow = "*"
 whitenoise = "*"
 django-tinymce4-lite = "*"
+django-environ = "*"
 
 [requires]
 python_version = "3.8"

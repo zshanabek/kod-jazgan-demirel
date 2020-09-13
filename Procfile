@@ -1,0 +1,1 @@
+web: gunicorn kjd.wsgi --log-file -
