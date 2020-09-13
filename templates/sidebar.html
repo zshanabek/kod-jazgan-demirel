@@ -1,0 +1,46 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/sidebar.css' %}">
+
+<div>
+    <strong>Menu:</strong>
+    <ul>
+        {% if user.is_authenticated %}
+        <li><a href="{% url 'account_email' %}">Change E-mail</a></li>
+        <li><a href="{% url 'account_logout' %}">Sign Out</a></li>
+        {% else %}
+        <li><a href="{% url 'account_login' %}">Sign In</a></li>
+        <li><a href="{% url 'account_signup' %}">Sign Up</a></li>
+        {% endif %}
+    </ul>
+</div>
+<nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+    <div class="sidebar-sticky pt-3">
+        <ul class="nav flex-column">
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'home' %}">Главная</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link">Библиотека</a>
+            </li>
+        </ul>
+        {% if user.is_authenticated %}
+        <ul class="nav flex-column">
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'account_email' %}">Настройки</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'account_logout' %}">Выйти</a>
+            </li>
+        </ul>
+        {% else %}
+        <ul class="nav flex-column">
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'account_signup' %}">Зарегестрироваться</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'account_login' %}">Войти</a>
+            </li>
+        </ul>
+        {% endif %}
+    </div>
+</nav>

@@ -1,7 +1,10 @@
-
-<ul>
-{% for set in sets %}
-   <li> {{ set.title }} </li> 
-{% endfor %}
-
-</ul>
+{% extends 'base.html' %}
+{% block content %}
+    <div class="list-group">
+        {% for set in sets %}
+            <a href="#" class="list-group-item list-group-item-action">
+                {{ set.title }}
+            </a>
+        {% endfor %}
+    </div>
+{% endblock content %}
