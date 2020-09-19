@@ -1,0 +1,9 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/navbar.css' %}">
+ <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
+    <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="{% url 'home' %}">Kod Jazgan Demirel </a>
+    <ul
+      v-if="usersService.user"
+      class="navbar-nav px-3"
+    />
+</nav>

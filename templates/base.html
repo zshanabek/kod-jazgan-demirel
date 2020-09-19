@@ -6,27 +6,27 @@
     {% block extra_head %} {% endblock %}
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
         integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    {% load static %}
-    <link rel="stylesheet" href="{% static 'css/home.css' %}">
 </head>
 
 <body>
     {% block body %}
-    <div class="container-fluid">
-        <div class="row">
-            {% include 'sidebar.html' %}
-            <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
-                {% if messages %}
-                <strong>Messages:</strong>
-                <ul>
-                    {% for message in messages %}
-                    <li>{{message}}</li>
-                    {% endfor %}
-                </ul>
-                {% endif %}
-                {% block content %}
-                {% endblock content%}
-            </main>
+    <div>
+        {% include 'partials/navbar.html' %}
+        <div class="container-fluid">
+            <div class="row">
+                {% include 'partials/sidebar.html' %}
+                <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+                    {% if messages %}
+                        <div>
+                            {% for message in messages %}
+                                <div class="alert alert-primary" role="alert">{{message}}</div>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                    {% block content %}
+                    {% endblock content%}
+                </main>
+            </div>
         </div>
     </div>
     {% endblock body%}
