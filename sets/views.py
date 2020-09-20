@@ -1,31 +1,21 @@
-from django.shortcuts import render
+from django.views.generic import DetailView, ListView
+
 from .models import Set
-from django import http
-from django.views.generic import ListView, DetailView
-
-
-def index(request):
-    context = {'sets': Set.objects.all()}
-    template_name = 'sets/index.html'
-    return render(request, template_name, context)
-
-
-def detail(request, set_id):
-    try:
-        set = Set.objects.get(id=set_id)
-    except Set.DoesNotExist:
-        raise http.Http404("Set doesn't exist")
-    context = {'set': set}
-    return render(request, 'sets/detail.html', context)
-
-
-class SetDetailView(DetailView):
-    model = Set
-    template_name = 'sets/detail.html'
-    context_object_name = 'sets'
 
 
 class SetListView(ListView):
     model = Set
     template_name = 'sets/index.html'
-    context_object_name = 'sets'
+
+
+class SetDetailView(DetailView):
+    model = Set
+    template_name = 'sets/detail.html'
+
+    def get_context_data(self, **kwargs):
+        # Call the base implementation first to get the context
+        context = super(SetDetailView, self).get_context_data(**kwargs)
+        # Create any data and add it to the context
+        set = kwargs['object']
+        context['posts'] = set.posts.all()
+        return context

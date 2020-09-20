@@ -3,7 +3,7 @@ from .models import Set
 
 
 class SetAdmin(admin.ModelAdmin):
-    fields = ('title', 'image')
+    fields = ('title', 'cover', 'description')
 
 
 admin.site.register(Set, SetAdmin)

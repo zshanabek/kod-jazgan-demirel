@@ -1,10 +1,16 @@
 {% extends 'base.html' %}
+{% load static %}
+<!-- Prism CSS -->
+<link href="{% static "tinymce/css/prism.css" %}" rel="stylesheet">
 {% block content %}
     <div class="list-group">
-        {% for set in sets %}
-            <a href="/sets/{{set.id}}/" class="list-group-item list-group-item-action">
+        {% for set in object_list %}
+            <a href="/sets/{{set.id}}" class="list-group-item list-group-item-action">
+                <img class="mr-3 rounded" src="{{ set.cover.url }}" alt="{{ set.title }}" style="max-width:100px">
                 {{ set.title }}
             </a>
         {% endfor %}
     </div>
 {% endblock content %}
+<!-- Prism JS -->
+<script src="{% static "tinymce/js/prism.js" %}"></script>

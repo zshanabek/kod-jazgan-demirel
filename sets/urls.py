@@ -1,8 +1,7 @@
 from django.urls import path
-from .views import index, detail, SetListView
+from .views import SetListView, SetDetailView
 
 urlpatterns = [
-    path('sets/', index, name='sets-list'),
-    path('class/sets/', SetListView.as_view(), name='sets-list-class'),
-    path('sets/<int:set_id>/', detail, name='sets-detail')
+    path('sets', SetListView.as_view(), name='sets-list'),
+    path('sets/<int:pk>', SetDetailView.as_view(), name='sets-detail')
 ]

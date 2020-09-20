@@ -4,8 +4,7 @@ from django_extensions.db.models import TimeStampedModel, TitleSlugDescriptionMo
 
 
 class Set(TitleSlugDescriptionModel, TimeStampedModel):
-    image = models.ImageField(_("Image"), upload_to='sets',
-                              height_field=None, width_field=None, max_length=None)
+    cover = models.ImageField(_("Cover"), upload_to='sets', null=True)
 
     def __str__(self):
         return self.title
