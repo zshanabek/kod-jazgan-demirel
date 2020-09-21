@@ -5,7 +5,7 @@ from .models import Post
 
 
 class PostAdmin(admin.ModelAdmin):
-    fields = ('title', 'set', 'link', 'cover', 'content')
+    fields = ('title', 'set', 'link', 'cover', 'video', 'content')
     formfield_overrides = {
         models.TextField: {'widget': TinyMCE()},
     }

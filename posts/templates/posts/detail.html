@@ -1,4 +1,15 @@
 {% extends 'base.html' %}
 {% block content %}
-{{post.title}}
+    <h4>{{post.title}}</h4>
+    <p style="font-size: 70%">{{post.created}}</p>
+    {% if post.video %}
+        <video width='200' controls>
+            <source src="{{ post.video.url }}" type='video/mp4'>
+        </video>
+    {% endif %}
+    <p>{{post.content|safe}}</p>
+    <br>
+    <div>
+        <script async src="https://comments.app/js/widget.js?3" data-comments-app-website="SdQTldxU" data-limit="5"></script>
+    </div>
 {% endblock content %}
