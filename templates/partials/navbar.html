@@ -1,9 +1,12 @@
 {% load static %}
 <link rel="stylesheet" type="text/css" href="{% static 'css/navbar.css' %}">
- <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
-    <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="{% url 'home' %}">Kod Jazgan Demirel </a>
-    <ul
-      v-if="usersService.user"
-      class="navbar-nav px-3"
-    />
+<nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
+    <a class="navbar-brand col-sm-3 col-md-2 mr-0 px-3" href="{% url 'home' %}">Kod Jazgan Demirel </a>
+    <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-toggle="collapse" data-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <form class='w-100 mx-2' action="{% url 'search' %}" method="POST">
+        {% csrf_token %} 
+        <input class="form-control form-control-dark" type="text" name="title" placeholder="Поиск" aria-label="Поиск">
+    </form>
 </nav>

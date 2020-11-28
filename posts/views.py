@@ -1,5 +1,5 @@
 from django.views.generic import DetailView, ListView
-
+from django.shortcuts import render
 from .models import Post
 
 
@@ -16,3 +16,11 @@ class PostDetailView(DetailView):
         posts = Post.objects.filter(set=context['post'].set).order_by('created')
         context['sidebar'] = posts
         return context
+
+def search_post(request):
+    if request.method == "POST":
+        query_name = request.POST.get('title', None)
+        if query_name:
+            results = Post.objects.filter(title__contains=query_name)
+            return render(request, 'posts/post-search.html', {"results":results})
+    return render(request, 'posts/post-search.html')
