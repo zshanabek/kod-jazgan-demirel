@@ -11,8 +11,8 @@
     {% else%}
         {% for post in results %}
             <a href="/posts/{{post.id}}" class="list-group-item list-group-item-action">
-            <img class="mr-3 rounded" src="{{ post.cover.url }}" alt="{{ post.title }}" style="max-height:50px">
-            {{ post.title }} | {{post.set}}
+                <img class="mr-3 rounded" src="{{ post.cover.url }}" alt="{{ post.title }}" style="max-height:50px">
+                <span>{{ post.title }} | {{post.set}}</span>
             </a>
         {% endfor %}
     {%endif%}
