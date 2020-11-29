@@ -19,6 +19,7 @@ pillow = "*"
 whitenoise = "*"
 django-tinymce4-lite = "*"
 django-environ = "*"
+django-crispy-forms = "*"
 
 [requires]
 python_version = "3.8"

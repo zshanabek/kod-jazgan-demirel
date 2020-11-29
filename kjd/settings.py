@@ -43,12 +43,14 @@ INSTALLED_APPS = [
     # 3rd party apps
     'django_extensions',
     'tinymce',
+    'crispy_forms',
     # my apps
     'sets',
     'core',
     'posts'
 ]
 
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 SITE_ID = 1
 ACCOUNT_AUTHENTICATION_METHOD = "email"

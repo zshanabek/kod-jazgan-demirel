@@ -1,9 +1,8 @@
 {% extends 'base.html' %}
 {% block content %}
     <h4>{{set.title}}</h4>
-    <p style="font-size: 70%">Created: {{set.created}}</p>
+    <p style="font-size: 70%">Создан: {{set.created}}</p>
     <p>{{set.description}}</p>
-
     <h5>Посты</h5>
     <div class="list-group">
         {% for post in posts %}
