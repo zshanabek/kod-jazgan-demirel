@@ -23,7 +23,7 @@ SECRET_KEY = env('SECRET_KEY', default='unsafe-secret-key')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env('DEBUG')
 
-ALLOWED_HOSTS = ['kod-jazgan-demirel.herokuapp.com', 'localhost']
+ALLOWED_HOSTS = ['kod-jazgan-demirel.herokuapp.com', 'localhost','185.125.46.133']
 
 
 # Application definition
