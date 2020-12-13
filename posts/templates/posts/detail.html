@@ -1,4 +1,10 @@
 {% extends 'base.html' %}
+{% load static %}
+{% load martortags %}
+{% block css %}
+  <link href="{% static 'plugins/css/ace.min.css' %}" type="text/css" media="all" rel="stylesheet" />
+  <link href="{% static 'martor/css/martor.bootstrap.min.css' %}" type="text/css" media="all" rel="stylesheet" />
+{% endblock %}
 {% block head_title %}
     Пост | {{post.title}}
 {% endblock %}
@@ -14,7 +20,9 @@
                 </video>
             </div>
             {% endif %}
-            <p>{{post.description|safe}}</p>
+            <div class="martor-preview">
+              {{post.description|safe_markdown}}
+            </div>
         </div>
         <div class="col-sm-3 px-0">
             <div class="list-group">
@@ -43,3 +51,11 @@
     const player = new Plyr('#player');
 </script>
 {% endblock content %}
+{% block js %}
+  <script type="text/javascript" src="{% static 'plugins/js/highlight.min.js' %}"></script>
+  <script>
+    $('.martor-preview').each(function(i, block){
+        hljs.highlightBlock(block);
+    });
+  </script>
+{% endblock %}

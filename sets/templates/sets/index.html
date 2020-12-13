@@ -1,7 +1,5 @@
 {% extends 'base.html' %}
-{% load static %}
-<!-- Prism CSS -->
-<link href="{% static "tinymce/css/prism.css" %}" rel="stylesheet">
+
 {% block head_title %}
     Наборы
 {% endblock %}
@@ -15,5 +13,3 @@
         {% endfor %}
     </div>
 {% endblock content %}
-<!-- Prism JS -->
-<script src="{% static "tinymce/js/prism.js" %}"></script>

@@ -24,6 +24,6 @@ def search_post(request):
     if request.method == "POST":
         query_name = request.POST.get('title', None)
         if query_name:
-            results = Post.objects.filter(title__contains=query_name)
+            results = Post.objects.filter(title__icontains=query_name)
             return render(request, 'posts/post-search.html', {"results": results})
     return render(request, 'posts/post-search.html')

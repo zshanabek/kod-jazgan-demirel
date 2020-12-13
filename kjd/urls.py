@@ -7,10 +7,10 @@ from django.urls import include, path
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('allauth.urls')),
-    path('tinymce/', include('tinymce.urls')),
+    path('martor/', include('martor.urls')),
     path('', include('core.urls')),
     path('', include('sets.urls')),
-    path('', include('posts.urls'))
+    path('', include('posts.urls')),
 ]
 
 if settings.DEBUG:

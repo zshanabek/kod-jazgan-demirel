@@ -17,9 +17,9 @@ psycopg2-binary = "*"
 sentry-sdk = "*"
 pillow = "*"
 whitenoise = "*"
-django-tinymce4-lite = "*"
 django-environ = "*"
 django-crispy-forms = "*"
+martor = "*"
 
 [requires]
 python_version = "3.8"

@@ -1,13 +1,14 @@
 from django.contrib import admin
-from tinymce.widgets import TinyMCE
 from django.db import models
+from martor.widgets import AdminMartorWidget
+
 from .models import Post
 
 
 class PostAdmin(admin.ModelAdmin):
     fields = ('title', 'set', 'cover', 'video', 'description')
     formfield_overrides = {
-        models.TextField: {'widget': TinyMCE(attrs={'cols': 80, 'rows': 30})},
+        models.TextField: {'widget': AdminMartorWidget},
     }
 
 
