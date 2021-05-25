@@ -6,7 +6,7 @@ from .models import Post
 
 
 class PostAdmin(admin.ModelAdmin):
-    fields = ('title', 'set', 'cover', 'video', 'description')
+    fields = ('title', 'set', 'cover', 'video', 'is_public', 'description')
     formfield_overrides = {
         models.TextField: {'widget': AdminMartorWidget},
     }

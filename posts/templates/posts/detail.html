@@ -4,6 +4,7 @@
 {% block css %}
   <link href="{% static 'plugins/css/ace.min.css' %}" type="text/css" media="all" rel="stylesheet" />
   <link href="{% static 'martor/css/martor.bootstrap.min.css' %}" type="text/css" media="all" rel="stylesheet" />
+  <link href="{% static 'css/post.css' %}" rel="stylesheet">
 {% endblock %}
 {% block head_title %}
     Пост | {{post.title}}
@@ -13,12 +14,19 @@
         <p style="font-size: 70%">{{post.created}}</p>
         <div class="row">
         <div class="col-sm-9">
-            {% if post.video %}
-            <div style="height: 450px;">
-                <video id="player" playsinline controls data-poster="{{post.cover.url}}">
-                    <source src="{{post.video.url}}" type="video/mp4" />
-                </video>
-            </div>
+            {% if not post.is_public %}
+                <div class="video-block black text-center">
+                    <div class="video-block-button pt-5">
+                        <div class="pb-3">Этот урок доступен только для тех, кто купил подписку</div>
+                        <button class="btn btn-info">Получить все видеоуроки за 900 тенге</button>
+                    </div>
+                </div>
+            {% elif post.video %}
+                <div class="video-block">
+                    <video id="player" playsinline controls data-poster="{{post.cover.url}}">
+                        <source src="{{post.video.url}}" type="video/mp4" />
+                    </video>
+                </div>
             {% endif %}
             <div class="martor-preview">
               {{post.description|safe_markdown}}
@@ -31,11 +39,21 @@
                         <a href="/posts/{{menu_item.id}}" class="list-group-item list-group-item-action text-truncate p-0 active">
                             <img class="rounded" src="{{ menu_item.cover.url }}" alt="{{ menu_item.title }}" style="max-height:60px">
                             <span>{{ menu_item.title }}</span>
+                            {% if menu_item.is_public%}
+                                <span class="badge badge-success">Доступен</span>
+                            {% else %}
+                                <span class="badge badge-info">Недоступен</span>
+                            {% endif %}
                         </a>
                     {% else %}
                         <a href="/posts/{{menu_item.id}}" class="list-group-item list-group-item-action text-truncate p-0">
                             <img class="rounded" src="{{ menu_item.cover.url }}" alt="{{ menu_item.title }}" style="max-height:60px">
                             <span>{{ menu_item.title }}</span>
+                            {% if menu_item.is_public%}
+                                <span class="badge badge-success">Доступен</span>
+                            {% else %}
+                                <span class="badge badge-info">Недоступен</span>
+                            {% endif %}
                         </a>
                     {% endif %}
                 {% endfor %}
@@ -43,7 +61,6 @@
         </div>
     </div>
     <div>
-    fdf
     <script async src="https://comments.app/js/widget.js?3" data-comments-app-website="SdQTldxU" data-limit="5"></script>
     </div>
 <script src="https://cdn.plyr.io/3.6.2/plyr.js"></script>

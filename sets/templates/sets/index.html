@@ -10,6 +10,8 @@
                 <img class="mr-3 rounded" src="{{ set.cover.url }}" alt="{{ set.title }}" style="max-width:100px">
                 {{ set.title }}
             </a>
+        {% empty %}
+            No sets
         {% endfor %}
     </div>
 {% endblock content %}

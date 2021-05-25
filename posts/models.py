@@ -12,6 +12,7 @@ class Post(e_models.TimeStampedModel):
                              max_length=100, null=True)
     set = models.ForeignKey(
         "sets.Set", on_delete=models.CASCADE, null=True, related_name='posts')
+    is_public = models.BooleanField(default=False)
 
     def __str__(self):
         return self.title
