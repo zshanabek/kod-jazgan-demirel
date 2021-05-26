@@ -13,12 +13,12 @@
      <h4>{{post.title}}</h4>
         <p style="font-size: 70%">{{post.created}}</p>
         <div class="row">
-        <div class="col-sm-9">
+        <div class="col-sm-8">
             {% if not post.is_public %}
                 <div class="video-block black text-center">
                     <div class="video-block-button pt-5">
                         <div class="pb-3">Этот урок доступен только для тех, кто купил подписку</div>
-                        <button class="btn btn-info">Получить все видеоуроки за 900 тенге</button>
+                        <a class="btn btn-info" href="{% url 'pricing' %}"">Получить все уроки за 900 тенге в месяц</a>
                     </div>
                 </div>
             {% elif post.video %}
@@ -32,7 +32,7 @@
               {{post.description|safe_markdown}}
             </div>
         </div>
-        <div class="col-sm-3 px-0">
+        <div class="col-sm-4 px-0">
             <div class="list-group">
                 {% for menu_item in sidebar %}
                     {% if post.id == menu_item.id %}
